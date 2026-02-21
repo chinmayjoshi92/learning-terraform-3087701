@@ -40,7 +40,7 @@ resource "aws_instance" "blog" {
   subnet_id = module.blog_vpc_dev.public_subnets[0]
 
   tags = {
-    Name = "HelloWorld"
+    Name = "blog_instance"
   }
 }
 
@@ -62,7 +62,7 @@ module "blog_sg" {
 module "blog_alb" {
   source = "terraform-aws-modules/alb/aws"
 
-  name    = "blog_alb"
+  name    = "blog-alb"
   vpc_id  = module.blog_vpc_dev.default_vpc_id
   subnets = module.blog_vpc_dev.public_subnets
 
