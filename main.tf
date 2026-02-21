@@ -59,11 +59,11 @@ module "blog_sg" {
 
 }
 
-module "blog_alb" {
+module "blog-alb" {
   source = "terraform-aws-modules/alb/aws"
 
   name    = "blog-alb"
-  vpc_id  = module.blog_vpc_dev.default_vpc_id
+  vpc_id  = module.blog_vpc_dev.vpc_id
   subnets = module.blog_vpc_dev.public_subnets
 
   # Security Group
